@@ -1,6 +1,5 @@
 from maze import Maze
 from mac_gyver import MacGyver
-import random
 
 
 class Main:
@@ -35,6 +34,9 @@ class Main:
         item = self.maze.get_item(self.ITEMS, y, x)
         if item is not None:
             self.mac_gyver.inventory.append(item)
+
+    def check_inventory(self):
+        pass
 
 
 if __name__ == "__main__":

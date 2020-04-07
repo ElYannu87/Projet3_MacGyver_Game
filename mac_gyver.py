@@ -1,6 +1,3 @@
-from maze import Maze
-
-
 class MacGyver:
     def __init__(self, x, y):
         self.x = x
@@ -23,7 +20,3 @@ class MacGyver:
             print("Veuillez saisir un caractère valide")
 
         return y, x
-
-    def check_inventory(self):
-        if self.inventory == 3:
-            pass
