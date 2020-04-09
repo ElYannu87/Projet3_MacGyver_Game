@@ -20,3 +20,5 @@ class MacGyver:
             print("Veuillez saisir un caractère valide")
 
         return y, x
+
+

@@ -54,3 +54,6 @@ class Maze:
             return self.maze[y][x]
         else:
             return None
+
+    def check_guardian(self, y, x):
+        return self.maze[y][x] == "G"

@@ -11,7 +11,7 @@ class Main:
 
         if x is None or y is None:
             print("Map invalide, personnage non trouvé")
-            exit(1)
+            exit(1)  # 1 = error happened
 
         self.maze.randomize_items(self.ITEMS)
         self.mac_gyver = MacGyver(x, y)
@@ -25,6 +25,8 @@ class Main:
         new_y, new_x = self.mac_gyver.get_move_coords(direction)
 
         if self.maze.check_move(new_y, new_x):
+            if self.maze.check_guardian(new_y, new_x):
+                self.check_victory()
             self.collect_item(new_y, new_x)
             self.maze.update_player(self.mac_gyver.y, self.mac_gyver.x, new_y, new_x)
             self.mac_gyver.x = new_x
@@ -35,8 +37,12 @@ class Main:
         if item is not None:
             self.mac_gyver.inventory.append(item)
 
-    def check_inventory(self):
-        pass
+    def check_victory(self):
+        if len(self.mac_gyver.inventory) == len(self.ITEMS):
+            print("You Win")
+        else:
+            print("You Loose")
+        exit()
 
 
 if __name__ == "__main__":
