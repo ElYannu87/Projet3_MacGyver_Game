@@ -1,8 +1,13 @@
+import pygame
+import os
+
 from maze import Maze
 from mac_gyver import MacGyver
+import constants
 
 
 class Main:
+
     ITEMS = ["J", "K", "L"]
 
     def __init__(self):

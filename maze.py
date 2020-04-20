@@ -1,9 +1,20 @@
 import random
+import pygame
+import os
 
 
 class Maze:
     def __init__(self, file_path):
         self.maze = self.load_maze(file_path)
+        pygame.init()
+        self.window = pygame.display.set_mode((constants.WIDTH, constants.HEIGHT))
+        self.sprites = [pygame.image.load("Images/floortile1.png").convert_alpha(),
+                        pygame.image.load("Images/floortile2.png").convert_alpha(),
+                        pygame.image.load("Images/Gardien.png").convert_alpha(),
+                        pygame.image.load("Images/MacGyver.png").convert_alpha(),
+                        pygame.image.load("Images/Bonus/aiguille.png").convert_alpha(),
+                        pygame.image.load("Images/Bonus/ether.png").convert_alpha(),
+                        pygame.image.load("Images/Bonus/seringue.png").convert_alpha()]
 
     def load_maze(self, file_path):
         maze = []
