@@ -8,14 +8,14 @@ class Maze:
         self.maze = self.load_maze(file_path)
 
         pygame.init()
-        self.window = pygame.display.set_mode((constants.SEIZE_SCREEN, constants.SEIZE_SCREEN))
-        self.sprites = [pygame.image.load("Images/floortile1.png").convert_alpha(),
-                        pygame.image.load("Images/wall.png").convert_alpha(),
-                        pygame.image.load("Images/Gardien.png").convert_alpha(),
-                        pygame.image.load("Images/MacGyver.png").convert_alpha(),
-                        pygame.image.load("Images/Bonus/aiguille.png").convert_alpha(),
-                        pygame.image.load("Images/Bonus/ether.png").convert_alpha(),
-                        pygame.image.load("Images/Bonus/seringue.png").convert_alpha()]
+        self.screen = pygame.display.set_mode((constants.SEIZE_SCREEN, constants.SEIZE_SCREEN))
+        self.floor = pygame.image.load("Images/floortile1.png").convert_alpha()
+        self.wall = pygame.image.load("Images/wall.png").convert_alpha()
+        self.guardian = pygame.image.load("Images/Gardien.png").convert_alpha()
+        self.macgyver = pygame.image.load("Images/MacGyver.png").convert_alpha()
+        self.needle = pygame.image.load("Images/Bonus/aiguille.png").convert_alpha()
+        self.ether = pygame.image.load("Images/Bonus/ether.png").convert_alpha()
+        self.seringue = pygame.image.load("Images/Bonus/seringue.png").convert_alpha()
 
     def load_maze(self, file_path):
         maze = []
@@ -30,9 +30,14 @@ class Maze:
         return maze
 
     def print_maze(self):
-        for line in self.maze:
-            print("".join(line))
-            pygame.display.flip()
+        for pos_line, line in enumerate(self.maze):
+            for pos_case, case in enumerate(line):
+                if case == "#":
+                    print(self.wall)
+                    self.screen.blit(source=self.wall, dest=(pos_case * 40, pos_line * 40))
+
+            # print("".join(line))
+        pygame.display.flip()
 
     def find_player(self):
         for y, line in enumerate(self.maze):
