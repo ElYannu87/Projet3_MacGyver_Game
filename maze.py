@@ -1,16 +1,16 @@
 import random
 import pygame
 import constants
-import os
 
 
 class Maze:
     def __init__(self, file_path):
         self.maze = self.load_maze(file_path)
+
         pygame.init()
-        self.window = pygame.display.set_mode((constants.WIDTH, constants.HEIGHT))
+        self.window = pygame.display.set_mode((constants.SEIZE_SCREEN, constants.SEIZE_SCREEN))
         self.sprites = [pygame.image.load("Images/floortile1.png").convert_alpha(),
-                        pygame.image.load("Images/floortile2.png").convert_alpha(),
+                        pygame.image.load("Images/wall.png").convert_alpha(),
                         pygame.image.load("Images/Gardien.png").convert_alpha(),
                         pygame.image.load("Images/MacGyver.png").convert_alpha(),
                         pygame.image.load("Images/Bonus/aiguille.png").convert_alpha(),
@@ -32,6 +32,7 @@ class Maze:
     def print_maze(self):
         for line in self.maze:
             print("".join(line))
+            pygame.display.flip()
 
     def find_player(self):
         for y, line in enumerate(self.maze):
