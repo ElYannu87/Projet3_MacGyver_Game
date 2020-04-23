@@ -4,8 +4,9 @@ import constants
 
 
 class Maze:
-    def __init__(self, file_path):
+    def __init__(self, file_path, items_list):
         self.maze = self.load_maze(file_path)
+        self.randomize_items(items_list)
 
         pygame.init()
         self.screen = pygame.display.set_mode((constants.SEIZE_SCREEN, constants.SEIZE_SCREEN))
@@ -17,7 +18,14 @@ class Maze:
         self.ether = pygame.image.load("Images/Bonus/ether.png").convert_alpha()
         self.seringue = pygame.image.load("Images/Bonus/seringue.png").convert_alpha()
 
+
     def load_maze(self, file_path):
+        """
+        Load labyrinth from file_path into maze
+        :param file_path: path of the maze
+        :return: list of list containing the map
+        """
+
         maze = []
         with open(file_path, "r") as file:
             for line in file:
@@ -30,13 +38,13 @@ class Maze:
         return maze
 
     def print_maze(self):
-        for pos_line, line in enumerate(self.maze):
-            for pos_case, case in enumerate(line):
+        for y, line in enumerate(self.maze):
+            for x, case in enumerate(line):
                 if case == "#":
-                    print(self.wall)
-                    self.screen.blit(source=self.wall, dest=(pos_case * 40, pos_line * 40))
+                    self.screen.blit(source=self.wall, dest=(x * 40, y * 40))
+                elif case == " ":
+                    self.screen.blit(source=self.floor, dest=(x * 40, y * 40))
 
-            # print("".join(line))
         pygame.display.flip()
 
     def find_player(self):

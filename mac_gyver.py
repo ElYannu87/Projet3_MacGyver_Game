@@ -4,6 +4,11 @@ class MacGyver:
     def __init__(self, x, y):
         self.x = x
         self.y = y
+
+        if x is None or y is None:
+            print("Map invalide, personnage non trouvé")
+            exit(1)  # 1 = error happened
+
         self.inventory = []
 
     def get_move_coords(self, direction):
@@ -14,7 +19,7 @@ class MacGyver:
             x = x - 1
         elif direction == "d":
             x = x + 1
-        elif direction == "z":
+        elif direction == "UP":
             y = y - 1
         elif direction == "s":
             y = y + 1

@@ -11,22 +11,20 @@ class Main:
     ITEMS = ["J", "K", "L"]
 
     def __init__(self):
-        self.maze = Maze("MazeMap/Maze.txt")
-        x, y = self.maze.find_player()
+        self.maze = Maze("MazeMap/Maze.txt", self.ITEMS)
+        self.mac_gyver = MacGyver(*self.maze.find_player())
 
-        if x is None or y is None:
-            print("Map invalide, personnage non trouvé")
-            exit(1)  # 1 = error happened
+        launched = True
+        while launched:
+            for event in pygame.event.get():
+                print(event)
+                if event.type == pygame.QUIT:
+                    launched = False
+                elif event.type == pygame.KEYDOWN:
+                    if event.key == pygame.K_UP:
+                        self.game_loop("UP")
 
-        self.maze.randomize_items(self.ITEMS)
-        self.mac_gyver = MacGyver(x, y)
-
-        while True:
-            self.game_loop()
-
-    def game_loop(self):
-        self.maze.print_maze()
-        direction = input()
+    def game_loop(self, direction):
         new_y, new_x = self.mac_gyver.get_move_coords(direction)
 
         if self.maze.check_move(new_y, new_x):
