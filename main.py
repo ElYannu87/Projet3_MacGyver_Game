@@ -7,10 +7,17 @@ import constants
 
 
 class Main:
+    """
+     Contains constant Item list
+    """
 
     ITEMS = ["J", "K", "L"]
 
     def __init__(self):
+        """
+        Initialses the maze and player position and
+        launches pygame game loop
+        """
         self.maze = Maze("MazeMap/Maze.txt", self.ITEMS)
         self.mac_gyver = MacGyver(*self.maze.find_player())
 
@@ -23,8 +30,19 @@ class Main:
                 elif event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_UP:
                         self.game_loop("UP")
+                    elif event.key == pygame.K_DOWN:
+                        self.game_loop("DOWN")
+                    elif event.key == pygame.K_LEFT:
+                        self.game_loop("LEFT")
+                    elif event.key == pygame.K_RIGHT:
+                        self.game_loop("RIGHT")
 
     def game_loop(self, direction):
+        """
+        :param : Directions
+        Main game loop with checks for movement, victory, items and
+        player position.
+        """
         new_y, new_x = self.mac_gyver.get_move_coords(direction)
 
         if self.maze.check_move(new_y, new_x):
@@ -36,11 +54,18 @@ class Main:
             self.mac_gyver.y = new_y
 
     def collect_item(self, y, x):
+        """
+        :param : y and x of items
+        Stores items in player inventory
+        """
         item = self.maze.get_item(self.ITEMS, y, x)
         if item is not None:
             self.mac_gyver.inventory.append(item)
 
     def check_victory(self):
+        """
+        Check for victory if player on Guardian position.
+        """
         if len(self.mac_gyver.inventory) == len(self.ITEMS):
             print("You Win")
         else:

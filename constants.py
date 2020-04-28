@@ -1,4 +1,6 @@
-
+"""
+All pygame contstants and pygame image files
+"""
 SPRITES = 15
 SPRITE_WIDTH = 40
 SEIZE_SCREEN = SPRITES * SPRITE_WIDTH

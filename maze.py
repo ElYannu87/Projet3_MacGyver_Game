@@ -38,16 +38,30 @@ class Maze:
         return maze
 
     def print_maze(self):
+        """
+        Displays the maze on screen with pygame canvas
+        """
         for y, line in enumerate(self.maze):
             for x, case in enumerate(line):
                 if case == "#":
                     self.screen.blit(source=self.wall, dest=(x * 40, y * 40))
                 elif case == " ":
                     self.screen.blit(source=self.floor, dest=(x * 40, y * 40))
+                elif case == "L":
+                    self.screen.blit(source=self.needle, dest=(x * 40, y * 40))
+                elif case == "J":
+                    self.screen.blit(source=self.ether, dest=(x * 40, y * 40))
+                elif case == "K":
+                    self.screen.blit(source=self.seringue, dest=(x * 40, y * 40))
+                elif case == "G":
+                    self.sceen.blit(source=self.guardian, dest=(x * 40, y * 40))
 
         pygame.display.flip()
 
     def find_player(self):
+        """
+        Finds the player starting position
+        """
         for y, line in enumerate(self.maze):
             for x, character in enumerate(line):
                 if character == "m":
@@ -55,15 +69,30 @@ class Maze:
         return None
 
     def check_move(self, y, x):
+        """
+        :param y and x of player
+        Verifys the if the movement is legal and does not
+        exit the maze or goes into walls
+        """
         return 0 <= y < len(self.maze) \
                and 0 <= x < len(self.maze[y]) \
                and self.maze[y][x] != "#"
 
     def update_player(self, old_y, old_x, new_y, new_x):
+        """
+
+        :param old_y, old_y: old player position
+        :param new_y, new_x: new player position
+        Replaces the old player position with the new one
+        """
         self.maze[old_y][old_x] = " "
         self.maze[new_y][new_x] = "m"
 
     def randomize_items(self, items_name):
+        """
+        :param : item_name from global Items in Main
+        Randomizes the item displayed in the maze
+        """
         maze_item_space = []
         for y, line in enumerate(self.maze):
             for x, char in enumerate(line):
@@ -76,10 +105,20 @@ class Maze:
             self.maze[items[index][0]][items[index][1]] = item
 
     def get_item(self, items, y, x):
+        """
+        :param y and x of the items
+        Verifing if the space where the player stands contains an Item.
+        If so, Item is added to inventory
+        :return : Item
+        """
         if self.maze[y][x] != " " and self.maze[y][x] in items:
             return self.maze[y][x]
         else:
             return None
 
     def check_guardian(self, y, x):
+        """
+        :param y and x coordianates of guardian
+        :return : Guardian coordinates
+        """
         return self.maze[y][x] == "G"
