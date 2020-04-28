@@ -20,6 +20,7 @@ class Main:
         """
         self.maze = Maze("MazeMap/Maze.txt", self.ITEMS)
         self.mac_gyver = MacGyver(*self.maze.find_player())
+        self.maze.display_maze()
 
         launched = True
         while launched:
@@ -37,11 +38,14 @@ class Main:
                     elif event.key == pygame.K_RIGHT:
                         self.game_loop("RIGHT")
 
+                    self.maze.display_maze()
+
     def game_loop(self, direction):
         """
-        :param : Directions
         Main game loop with checks for movement, victory, items and
         player position.
+
+        :param : Directions
         """
         new_y, new_x = self.mac_gyver.get_move_coords(direction)
 

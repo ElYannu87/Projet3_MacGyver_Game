@@ -18,7 +18,6 @@ class Maze:
         self.ether = pygame.image.load("Images/Bonus/ether.png").convert_alpha()
         self.seringue = pygame.image.load("Images/Bonus/seringue.png").convert_alpha()
 
-
     def load_maze(self, file_path):
         """
         Load labyrinth from file_path into maze
@@ -37,7 +36,7 @@ class Maze:
 
         return maze
 
-    def print_maze(self):
+    def display_maze(self):
         """
         Displays the maze on screen with pygame canvas
         """
@@ -54,7 +53,7 @@ class Maze:
                 elif case == "K":
                     self.screen.blit(source=self.seringue, dest=(x * 40, y * 40))
                 elif case == "G":
-                    self.sceen.blit(source=self.guardian, dest=(x * 40, y * 40))
+                    self.screen.blit(source=self.guardian, dest=(x * 40, y * 40))
 
         pygame.display.flip()
 
