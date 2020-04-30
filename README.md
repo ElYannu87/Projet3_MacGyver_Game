@@ -1,4 +1,4 @@
-##**"Projet 3 : Aidez MacGyver à s'échapper !"**  
+#Projet 3 : Aidez MacGyver à s'échapper !
 GitHub : https://github.com/ElYannu87/Projet3_MacGyver_Game
 
 1. **Présentation:**  
