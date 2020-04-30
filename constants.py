@@ -12,3 +12,4 @@ IMAGE_NEEDLE = "Images/Bonus/aiguille.png"
 IMAGE_WALL = "Images/wall.png"
 IMAGE_MACGYVER = "Images/MacGyver.png"
 IMAGE_FLOOR = "Images/floortile1.png"
+

@@ -17,8 +17,8 @@ class MacGyver:
 
     def get_move_coords(self, direction):
         """
-        :arg The direction to move to
         Input converted for Pygame library
+        :arg The direction to move to
         """
         x = self.x
         y = self.y

@@ -59,8 +59,8 @@ class Main:
 
     def collect_item(self, y, x):
         """
-        :param : y and x of items
         Stores items in player inventory
+        :param : y and x of items
         """
         item = self.maze.get_item(self.ITEMS, y, x)
         if item is not None:
