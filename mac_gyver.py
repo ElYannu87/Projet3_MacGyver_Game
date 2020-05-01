@@ -1,4 +1,3 @@
-import pygame
 
 class MacGyver:
     """
@@ -23,9 +22,9 @@ class MacGyver:
         x = self.x
         y = self.y
 
-        if direction == "RIGHT":
+        if direction == "LEFT":
             x = x - 1
-        elif direction == "LEFT":
+        elif direction == "RIGHT":
             x = x + 1
         elif direction == "UP":
             y = y - 1
@@ -35,5 +34,3 @@ class MacGyver:
             print("Veuillez saisir un caractère valide")
 
         return y, x
-
-

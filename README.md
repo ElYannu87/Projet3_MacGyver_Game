@@ -27,6 +27,6 @@ Installer les dépendances : "pip install -r requirements.txt"
     toujours utiliser une et une seule fois les caractères représentant les position de départ et du gardien.
 
 4. **Lancement du jeu :**  
-Pour lancer le jeu, il suffit de lancer le fichier main.py. Pour se déplacer, utiliser les touches "Z" (haut), "S"(bas), "Q"(gacuhe) et "D"(droite) du clavier.
+Pour lancer le jeu, il suffit de lancer le fichier main.py. Pour se déplacer, utiliser les touches "Z" (haut), "S"(bas), "Q"(gauche) et "D"(droite) du clavier.
 
 **A vous de jouer!**

@@ -1,9 +1,7 @@
 import pygame
-import os
 
-from maze import Maze
 from mac_gyver import MacGyver
-import constants
+from maze import Maze
 
 
 class Main:

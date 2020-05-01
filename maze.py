@@ -44,13 +44,18 @@ class Maze:
             for x, case in enumerate(line):
                 if case == "#":
                     self.screen.blit(source=self.wall, dest=(x * 40, y * 40))
+                elif case == "m":
+                    self.screen.blit(source=self.wall, dest=(x * 40, y * 40))
                 elif case == " ":
                     self.screen.blit(source=self.floor, dest=(x * 40, y * 40))
                 elif case == "L":
+                    self.screen.blit(source=self.floor, dest=(x * 40, y * 40))
                     self.screen.blit(source=self.needle, dest=(x * 40, y * 40))
                 elif case == "J":
+                    self.screen.blit(source=self.floor, dest=(x * 40, y * 40))
                     self.screen.blit(source=self.ether, dest=(x * 40, y * 40))
                 elif case == "K":
+                    self.screen.blit(source=self.floor, dest=(x * 40, y * 40))
                     self.screen.blit(source=self.seringue, dest=(x * 40, y * 40))
                 elif case == "G":
                     self.screen.blit(source=self.guardian, dest=(x * 40, y * 40))
