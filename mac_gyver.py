@@ -26,9 +26,9 @@ class MacGyver:
             x = x - 1
         elif direction == "RIGHT":
             x = x + 1
-        elif direction == "UP":
-            y = y - 1
         elif direction == "DOWN":
+            y = y - 1
+        elif direction == "UP":
             y = y + 1
         else:
             print("Veuillez saisir un caractère valide")

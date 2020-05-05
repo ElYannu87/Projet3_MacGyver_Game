@@ -12,7 +12,7 @@ Installer les dépendances : "pip install -r requirements.txt"
 
 3. **Paramétrage :**
 
-    IMPORTANT : Les images du jeu doivent être à la tailel de SPRITES
+    IMPORTANT : Les images du jeu doivent être à la taille de SPRITES
     
     Fichier constants :  
     SPRITES : Taille des objets à afficher (côté du carré en pixels). Attention toutes les images du jeu doivent avoir le mème format.  
