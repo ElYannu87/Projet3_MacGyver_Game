@@ -10,10 +10,10 @@ class Maze:
 
         pygame.init()
         self.screen = pygame.display.set_mode((constants.SEIZE_SCREEN, constants.SEIZE_SCREEN))
-        self.floor = pygame.image.load("Images/floortile1.png").convert_alpha()
+        self.floor = pygame.image.load("Images/floor.png").convert_alpha()
         self.wall = pygame.image.load("Images/wall.png").convert_alpha()
-        self.guardian = pygame.image.load("Images/Gardien.png").convert_alpha()
-        self.macgyver = pygame.image.load("Images/MacGyver.png").convert_alpha()
+        self.guardian = pygame.image.load("Images/gardien.png").convert_alpha()
+        self.macgyver = pygame.image.load("Images/macgyver.png").convert_alpha()
         self.needle = pygame.image.load("Images/Bonus/aiguille.png").convert_alpha()
         self.ether = pygame.image.load("Images/Bonus/ether.png").convert_alpha()
         self.seringue = pygame.image.load("Images/Bonus/seringue.png").convert_alpha()
@@ -45,7 +45,7 @@ class Maze:
                 if case == "#":
                     self.screen.blit(source=self.wall, dest=(x * 40, y * 40))
                 elif case == "m":
-                    self.screen.blit(source=self.wall, dest=(x * 40, y * 40))
+                    self.screen.blit(source=self.macgyver, dest=(x * 40, y * 40))
                 elif case == " ":
                     self.screen.blit(source=self.floor, dest=(x * 40, y * 40))
                 elif case == "L":
