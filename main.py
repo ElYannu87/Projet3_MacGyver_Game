@@ -23,7 +23,6 @@ class Main:
         launched = True
         while launched:
             for event in pygame.event.get():
-                print(event)
                 if event.type == pygame.QUIT:
                     launched = False
                 elif event.type == pygame.KEYDOWN:
